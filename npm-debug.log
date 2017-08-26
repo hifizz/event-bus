@@ -1,0 +1,110 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.6.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/fizz/GitHub/event-bus',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/fizz/.npm/fizz-event-bus/0.0.1/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/fizz/.npm correctMkdir not in flight; initializing
+10 info lifecycle fizz-event-bus@0.0.1~prepublish: fizz-event-bus@0.0.1
+11 silly lifecycle fizz-event-bus@0.0.1~prepublish: no script for prepublish, continuing
+12 info lifecycle fizz-event-bus@0.0.1~prepare: fizz-event-bus@0.0.1
+13 silly lifecycle fizz-event-bus@0.0.1~prepare: no script for prepare, continuing
+14 verbose tar pack [ '/Users/fizz/.npm/fizz-event-bus/0.0.1/package.tgz',
+14 verbose tar pack   '/Users/fizz/GitHub/event-bus' ]
+15 verbose tarball /Users/fizz/.npm/fizz-event-bus/0.0.1/package.tgz
+16 verbose folder /Users/fizz/GitHub/event-bus
+17 verbose addLocalTarball adding from inside cache /Users/fizz/.npm/fizz-event-bus/0.0.1/package.tgz
+18 verbose correctMkdir /Users/fizz/.npm correctMkdir not in flight; initializing
+19 silly cache afterAdd fizz-event-bus@0.0.1
+20 verbose afterAdd /Users/fizz/.npm/fizz-event-bus/0.0.1/package/package.json not in flight; writing
+21 verbose correctMkdir /Users/fizz/.npm correctMkdir not in flight; initializing
+22 verbose afterAdd /Users/fizz/.npm/fizz-event-bus/0.0.1/package/package.json written
+23 silly publish { name: 'fizz-event-bus',
+23 silly publish   version: '0.0.1',
+23 silly publish   description: 'a js event bus for simple sence.',
+23 silly publish   main: 'index.js',
+23 silly publish   scripts: { test: 'mocha' },
+23 silly publish   repository:
+23 silly publish    { type: 'git',
+23 silly publish      url: 'git+https://github.com/hifizz/event-bus.git' },
+23 silly publish   keywords: [ 'event', 'bus', 'bus' ],
+23 silly publish   author: { name: 'fizzstack@gmail.com' },
+23 silly publish   license: 'MIT',
+23 silly publish   bugs: { url: 'https://github.com/hifizz/event-bus/issues' },
+23 silly publish   homepage: 'https://github.com/hifizz/event-bus#readme',
+23 silly publish   readme: '# event-bus\nThis is a simple js event bus for simple scene.\n\n## install\n\n```bash\n$ npm i fizz-event-bus --save-dev \n```\n\n## start\n\n```js\nvar eventBus = require(\'fizz-event-bus\');\n\neventBus.on(\'open\', function(message) {\n\tconsole.log(message);\n});\n\n// somewhere after require(\'fizz-event-bus\')\neventBus.emit(\'open\', \'hello, you are cute.\');\n```\n',
+23 silly publish   readmeFilename: 'README.md',
+23 silly publish   _id: 'fizz-event-bus@0.0.1',
+23 silly publish   _shasum: 'f1a91c3304c8c609c39d3cf82f56982253ee0666',
+23 silly publish   _from: '.' }
+24 info lifecycle fizz-event-bus@0.0.1~prepublishOnly: fizz-event-bus@0.0.1
+25 silly lifecycle fizz-event-bus@0.0.1~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name fizz-event-bus
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry http://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'fizz-event-bus',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'fizz-event-bus',
+30 silly mapToRegistry   name: 'fizz-event-bus',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri http://registry.npmjs.org/fizz-event-bus
+32 verbose publish registryBase http://registry.npmjs.org/
+33 silly publish uploading /Users/fizz/.npm/fizz-event-bus/0.0.1/package.tgz
+34 verbose request uri http://registry.npmjs.org/fizz-event-bus
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 9:04:43 PM
+37 verbose request using bearer token for auth
+38 verbose request id a31f8c38bc6e6ab6
+39 http request PUT http://registry.npmjs.org/fizz-event-bus
+40 http 403 http://registry.npmjs.org/fizz-event-bus
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '104',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Sat, 26 Aug 2017 13:04:47 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-sin18021-SIN',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1503752687.648656,VS0,VE923',
+41 verbose headers   vary: 'Accept-Encoding, Accept' }
+42 verbose request invalidating /Users/fizz/.npm/registry.npmjs.org/fizz-event-bus on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: you must verify your email before publishing a new package: https://www.npmjs.com/email-edit : fizz-event-bus
+44 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:292:14)
+44 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
+44 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:192:7)
+44 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+44 verbose stack     at emitOne (events.js:96:13)
+44 verbose stack     at Request.emit (events.js:189:7)
+44 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+45 verbose statusCode 403
+46 verbose pkgid fizz-event-bus
+47 verbose cwd /Users/fizz/GitHub/event-bus
+48 error Darwin 16.4.0
+49 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+50 error node v7.6.0
+51 error npm  v4.1.2
+52 error code E403
+53 error you must verify your email before publishing a new package: https://www.npmjs.com/email-edit : fizz-event-bus
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
