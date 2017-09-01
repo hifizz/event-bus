@@ -1,12 +1,5 @@
-/**
- * THis is a normal object. When call the eventBus.on,
- * it use the eventName as a key, callback as a value.
- * So it just support one handle function now.
- * I'll fix it soon.
- * */
-
 var eventBus = {
-  //事件队列
+  // 事件队列
   eventList: {},
   
   /**
@@ -15,21 +8,53 @@ var eventBus = {
    * @param callback {Function}
    */
   on: function (eventName, callback) {
-    this.eventList[eventName] = callback;
+    if (!this.eventList[eventName]) {
+      this.eventList[eventName] = [];
+    }
+    this.eventList[eventName].push(callback);
   },
   
   /**
    * 发布事件
+   * 第一位参数必须为eventName，可以传多个参数。
+   * 第二位及之后的参数都将传给 handle
    * @param eventName {String}
    */
   emit: function (eventName) {
-    if (arguments.length < 1) {
-      //是否存在事件
-      if (this.eventList[eventName]) this.eventList[eventName]();
-    } else {
-      var params = Array.prototype.slice.call(arguments, 1);
-      if (this.eventList[eventName]) {
-        this.eventList[eventName].apply(this, params);
+    var handles = this.eventList[eventName];
+    if (!handles || handles.length === 0) {
+      return false;
+    }
+    else {
+      var argus = Array.prototype.slice.call(arguments, 1);
+      var len = handles.length;
+      for (var i = 0; i < len; i++) {
+        handles[i].apply(this, argus);
+      }
+    }
+  },
+  
+  /**
+   * 移除订阅事件
+   * 只传入 eventName, 则移除该事件下所有的 handle
+   * 传入 eventName 同时传入 callback, 则单独移除这个Callback
+   * @param eventName
+   * @param callback
+   * @return {boolean}
+   */
+  off: function (eventName, callback) {
+    var handles = this.eventList[eventName];
+    if (!handles || handles.length === 0) {
+      return false;
+    }
+    else if(!callback) {
+      this.eventList[eventName].length = 0;
+    }
+    else {
+      for(var i = handles.length -1; i >= 0; i--) {
+        if(handles[i] === callback) {
+          handles.splice(i, 1);
+        }
       }
     }
   }
