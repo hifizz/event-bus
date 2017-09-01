@@ -24,6 +24,7 @@ eventBus.emit('open', 'hello, you are cute.');
 
 ## TODO:
 
+- Add more than one handle function support.
 - Add off function.
 - Add test.
 - Add TypeScript support.
