@@ -1,4 +1,4 @@
-const eventBus = require("../index");
+import eventBus from "../lib/index"
 
 describe("eventBus", () => {
   describe("on", () => {

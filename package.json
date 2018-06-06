@@ -2,8 +2,8 @@
   "name": "fizz-event-bus",
   "version": "0.0.4",
   "description": "a js event bus for simple sence.",
-  "main": "index.js",
-  "type": "index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "format": "prettier '**/*.ts' '**/*.js' '**/*.md' --write",
     "test": "jest --watch --color"
@@ -26,6 +26,21 @@
   "homepage": "https://github.com/hifizz/event-bus#readme",
   "devDependencies": {
     "jest": "^23.1.0",
-    "prettier": "^1.13.4"
+    "prettier": "^1.13.4",
+    "ts-jest": "^22.4.6"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

@@ -1,17 +1,23 @@
-module.exports = function EventBus() {
+export type Handler = (param?: any) => void;
+
+export interface eventList {
+  [key: string]: Array<Handler>;
+}
+
+export class EventBus {
   // 事件列表
-  this.eventList = {};
+  eventList: eventList = {};
 
   /**
    * 订阅事件
    * @param eventName {String}
-   * @param callback {Function}
+   * @param handler {Function}
    */
-  this.on = function (eventName, callback) {
+  on(eventName: string, handler: Handler) {
     if (!this.eventList[eventName]) {
       this.eventList[eventName] = [];
     }
-    this.eventList[eventName].push(callback);
+    this.eventList[eventName].push(handler);
   };
 
   /**
@@ -19,8 +25,9 @@ module.exports = function EventBus() {
    * 第一位参数必须为eventName，可以传多个参数。
    * 第二位及之后的参数都将传给 handle
    * @param eventName {String}
+   * @param params {any} 
    */
-  this.emit = function (eventName) {
+  emit(eventName: string, params?: any) {
     var handles = this.eventList[eventName];
     if (!handles || handles.length === 0) {
       return false;
@@ -39,20 +46,21 @@ module.exports = function EventBus() {
    * 传入 eventName 同时传入 callback, 则单独移除这个Callback
    * @param eventName
    * @param callback
-   * @return {boolean}
+   * @returns {boolean|void} 当事件不存在的时候，返回false，其他情况皆不返回
    */
-  this.off = function (eventName, callback) {
+  off(eventName: string, handler: Handler): boolean | void {
     var handles = this.eventList[eventName];
     if (!handles || handles.length === 0) {
       return false;
-    } else if (!callback) {
+    } else if (!handler) {
       this.eventList[eventName].length = 0;
     } else {
       for (var i = handles.length - 1; i >= 0; i--) {
-        if (handles[i] === callback) {
+        if (handles[i] === handler) {
           handles.splice(i, 1);
         }
       }
     }
   }
+
 }
