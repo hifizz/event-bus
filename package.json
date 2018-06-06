@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "a js event bus for simple sence.",
   "main": "index.js",
-  "type": "index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "format": "prettier '**/*.ts' '**/*.js' '**/*.md' --write",
     "test": "jest --watch --color"

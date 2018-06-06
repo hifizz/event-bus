@@ -12,15 +12,17 @@ $ npm i fizz-event-bus --save
 
 ## Usage
 
-```js
-var eventBus = require("fizz-event-bus");
+```tsx
+import eventBus from 'fizz-event-bus';
 
-eventBus.on("open", function(message) {
-  console.log(message);
-});
+function hander(param) {
+  console.log(param);
+}
 
-// somewhere after require('fizz-event-bus')
-eventBus.emit("open", "hello, you are cute.");
+eventBus.on('foo', handler);
+
+// somewhere after import('fizz-event-bus')
+eventBus.emit('foo', 'bar');
 ```
 
 As default, eventBus is a global object. But you can import the eventBus constructor for create a new EventBus or inherit it.
