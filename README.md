@@ -23,4 +23,4 @@ eventBus.on("open", function(message) {
 eventBus.emit("open", "hello, you are cute.");
 ```
 
-As default, eventBus is a global object. But you can import the eventBus constructor for create a new EventBus or 
+As default, eventBus is a global object. But you can import the eventBus constructor for create a new EventBus or inherit it.
