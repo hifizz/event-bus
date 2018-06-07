@@ -1,5 +1,7 @@
 # Event bus
 
+![Travis CI build](https://travis-ci.org/hifizz/event-bus.svg?branch=master)
+
 A minimalism but expressive event bus for JS pub/sub scene.
 Just for simple scene.
 
