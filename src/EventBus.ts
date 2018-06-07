@@ -27,15 +27,14 @@ export class EventBus {
    * @param eventName {String}
    * @param params {any} 
    */
-  emit(eventName: string, params?: any) {
-    var handles = this.eventList[eventName];
-    if (!handles || handles.length === 0) {
+  emit(eventName: string, ...params: any[]): void | boolean {
+    const handlers = this.eventList[eventName];
+    if (!handlers || handlers.length === 0) {
       return false;
     } else {
-      var argus = Array.prototype.slice.call(arguments, 1);
-      var len = handles.length;
-      for (var i = 0; i < len; i++) {
-        handles[i].apply(this, argus);
+      const len = handlers.length;
+      for (let i = 0; i < len; i++) {
+        handlers[i].call(this, ...(params as any));
       }
     }
   }
@@ -48,16 +47,16 @@ export class EventBus {
    * @param callback
    * @returns {boolean|void} 当事件不存在的时候，返回false，其他情况皆不返回
    */
-  off(eventName: string, handler: Handler): boolean | void {
-    var handles = this.eventList[eventName];
-    if (!handles || handles.length === 0) {
+  off(eventName: string, handler?: Handler): boolean | void {
+    const handlers = this.eventList[eventName];
+    if (!handlers || handlers.length === 0) {
       return false;
     } else if (!handler) {
       this.eventList[eventName].length = 0;
     } else {
-      for (var i = handles.length - 1; i >= 0; i--) {
-        if (handles[i] === handler) {
-          handles.splice(i, 1);
+      for (let i = handlers.length - 1; i >= 0; i--) {
+        if (handlers[i] === handler) {
+          handlers.splice(i, 1);
         }
       }
     }

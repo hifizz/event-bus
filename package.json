@@ -6,7 +6,8 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "format": "prettier '**/*.ts' '**/*.js' '**/*.md' --write",
-    "test": "jest --watch --color"
+    "test": "jest --coverage=false",
+    "test:watch": "jest --watch --color"
   },
   "repository": {
     "type": "git",
@@ -25,22 +26,37 @@
   },
   "homepage": "https://github.com/hifizz/event-bus#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.49",
+    "@types/jest": "^23.0.0",
     "jest": "^23.1.0",
     "prettier": "^1.13.4",
-    "ts-jest": "^22.4.6"
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.9.1"
   },
   "jest": {
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/",
+      "/lib/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverage": true,
+    "mapCoverage": true
   }
 }

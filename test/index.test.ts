@@ -1,4 +1,4 @@
-import eventBus from "../lib/index"
+import eventBus from '../src/index'
 
 describe("eventBus", () => {
   describe("on", () => {
@@ -34,8 +34,9 @@ describe("eventBus", () => {
       const fn1 = jest.fn();
       eventBus.on("foo", () => {});
       eventBus.on("foo", fn1);
-      eventBus.on("foo", "bar");
-      expect(eventBus.eventList.foo.length).toBe(3);
+      eventBus.on("foo", fn1);
+      eventBus.on("foo", fn1);
+      expect(eventBus.eventList.foo.length).toBe(4);
     });
   });
 
@@ -90,7 +91,7 @@ describe("eventBus", () => {
   });
 
   describe("off", () => {
-    let fn1, fn2, fn3;
+    let fn1: jest.EmptyFunction, fn2: jest.EmptyFunction, fn3: jest.EmptyFunction;
 
     beforeEach(() => {
       fn1 = jest.fn();

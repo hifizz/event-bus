@@ -17,7 +17,7 @@ export declare class EventBus {
      * @param eventName {String}
      * @param params {any}
      */
-    emit(eventName: string, params?: any): false | undefined;
+    emit(eventName: string, ...params: any[]): void | boolean;
     /**
      * 移除订阅事件
      * 只传入 eventName, 则移除该事件下所有的 handle
@@ -26,5 +26,5 @@ export declare class EventBus {
      * @param callback
      * @returns {boolean|void} 当事件不存在的时候，返回false，其他情况皆不返回
      */
-    off(eventName: string, handler: Handler): boolean | void;
+    off(eventName: string, handler?: Handler): boolean | void;
 }
