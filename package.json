@@ -6,7 +6,8 @@
   "types": "index.d.ts",
   "scripts": {
     "format": "prettier '**/*.ts' '**/*.js' '**/*.md' --write",
-    "test": "jest --watch --color"
+    "test": "jest",
+    "test:watch": "jest --watch --color"
   },
   "repository": {
     "type": "git",
