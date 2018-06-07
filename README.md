@@ -6,7 +6,7 @@ Just for simple scene.
 ## Install
 
 ```bash
-$ npm i fizz-event-bus --save
+npm i fizz-event-bus --save
 ```
 
 ## Usage
