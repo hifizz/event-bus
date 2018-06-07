@@ -2,7 +2,6 @@
 
 A minimalism but expressive event bus for JS pub/sub scene.
 Just for simple scene.
-You can add your own feature free.
 
 ## Install
 
@@ -21,8 +20,8 @@ function hander(param) {
 
 eventBus.on('foo', handler);
 
-// somewhere after import('fizz-event-bus')
+// somewhere after import from 'fizz-event-bus'
 eventBus.emit('foo', 'bar');
 ```
 
-As default, eventBus is a global object. But you can import the eventBus constructor for create a new EventBus or inherit it.
+If you are using TypeScript, don't warry, it support!
