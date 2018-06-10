@@ -1,4 +1,4 @@
-const eventBus = require("../index");
+import eventBus from '../src/index'
 
 describe("eventBus", () => {
   describe("on", () => {
@@ -28,14 +28,17 @@ describe("eventBus", () => {
       expect(eventBus.eventList["delete"]).toContain(fn1);
       expect(eventBus.eventList[":90098089--"]).toContain(fn2);
       expect(eventBus.eventList["default"]).toContain(fn3);
+      eventBus.on(1, fn3);
+      expect(eventBus.eventList[1]).toContain(fn3);
     });
 
     it("should support append multi handlers for one event", () => {
       const fn1 = jest.fn();
       eventBus.on("foo", () => {});
       eventBus.on("foo", fn1);
-      eventBus.on("foo", "bar");
-      expect(eventBus.eventList.foo.length).toBe(3);
+      eventBus.on("foo", fn1);
+      eventBus.on("foo", fn1);
+      expect(eventBus.eventList.foo.length).toBe(4);
     });
   });
 
@@ -90,7 +93,7 @@ describe("eventBus", () => {
   });
 
   describe("off", () => {
-    let fn1, fn2, fn3;
+    let fn1: jest.EmptyFunction, fn2: jest.EmptyFunction, fn3: jest.EmptyFunction;
 
     beforeEach(() => {
       fn1 = jest.fn();
