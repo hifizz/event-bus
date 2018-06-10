@@ -1,6 +1,6 @@
 {
   "name": "fizz-event-bus",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "a js event bus for simple sence.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

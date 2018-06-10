@@ -1,4 +1,4 @@
-import eventBus from '../src/index'
+import eventBus from "../src/index";
 
 describe("eventBus", () => {
   describe("on", () => {
@@ -93,7 +93,9 @@ describe("eventBus", () => {
   });
 
   describe("off", () => {
-    let fn1: jest.EmptyFunction, fn2: jest.EmptyFunction, fn3: jest.EmptyFunction;
+    let fn1: jest.EmptyFunction,
+      fn2: jest.EmptyFunction,
+      fn3: jest.EmptyFunction;
 
     beforeEach(() => {
       fn1 = jest.fn();

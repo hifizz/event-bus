@@ -18,14 +18,14 @@ export class EventBus {
       this.eventList[eventName] = [];
     }
     this.eventList[eventName].push(handler);
-  };
+  }
 
   /**
    * 发布事件
    * 第一位参数必须为eventName，可以传多个参数。
    * 第二位及之后的参数都将传给 handle
    * @param eventName {String}
-   * @param params {any} 
+   * @param params {any}
    */
   emit(eventName: string, ...params: any[]): void | boolean {
     const handlers = this.eventList[eventName];
@@ -61,5 +61,4 @@ export class EventBus {
       }
     }
   }
-
 }
