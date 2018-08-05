@@ -4,7 +4,7 @@
   "description": "a js event bus for simple sence.",
   "main": "./lib/es5/index.js",
   "module": "./lib/esm/index.js",
-  "types": "./lib/index.d.ts",
+  "types": "./lib/es5/index.d.ts",
   "scripts": {
     "format": "prettier '**/*.ts' '**/*.js' '**/*.md' --write",
     "pre-publish": "npm run compile-es3 && npm run compile-es5 && npm run compile-esm",
