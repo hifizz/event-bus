@@ -1,6 +1,6 @@
 # Event bus
 
-![Travis CI build](https://travis-ci.org/hifizz/event-bus.svg?branch=master)
+[![Build Status](https://travis-ci.org/hifizz/event-bus.svg?branch=master)](https://travis-ci.org/hifizz/event-bus)
 [![codecov](https://codecov.io/gh/hifizz/event-bus/branch/master/graph/badge.svg)](https://codecov.io/gh/hifizz/event-bus)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
