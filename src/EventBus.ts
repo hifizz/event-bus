@@ -1,4 +1,5 @@
 export type Handler = (param?: any) => void;
+export type IEventName = string | number;
 
 export interface eventList {
   [key: string]: Array<Handler>;
@@ -13,7 +14,7 @@ export class EventBus {
    * @param eventName {String}
    * @param handler {Function}
    */
-  on(eventName: string, handler: Handler) {
+  on(eventName: IEventName, handler: Handler) {
     if (!this.eventList[eventName]) {
       this.eventList[eventName] = [];
     }
@@ -27,14 +28,13 @@ export class EventBus {
    * @param eventName {String}
    * @param params {any}
    */
-  emit(eventName: string, ...params: any[]): void | boolean {
+  emit(eventName: IEventName, ...params: any[]): void | boolean {
     const handlers = this.eventList[eventName];
     if (!handlers || handlers.length === 0) {
       return false;
     } else {
-      const len = handlers.length;
-      for (let i = 0; i < len; i++) {
-        handlers[i].call(this, ...(params as any));
+      for (let handler of handlers) {
+        handler(...params as any);
       }
     }
   }
@@ -47,7 +47,7 @@ export class EventBus {
    * @param callback
    * @returns {boolean|void} 当事件不存在的时候，返回false，其他情况皆不返回
    */
-  off(eventName: string, handler?: Handler): boolean | void {
+  off(eventName: IEventName, handler?: Handler): boolean | void {
     const handlers = this.eventList[eventName];
     if (!handlers || handlers.length === 0) {
       return false;
