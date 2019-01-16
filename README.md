@@ -1,6 +1,8 @@
 # Event bus
 
 ![Travis CI build](https://travis-ci.org/hifizz/event-bus.svg?branch=master)
+[![codecov](https://codecov.io/gh/hifizz/event-bus/branch/master/graph/badge.svg)](https://codecov.io/gh/hifizz/event-bus)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A minimalism but expressive event bus for JS pub/sub scene.
 Just for simple scene.
@@ -22,6 +24,8 @@ yarn add fizz-event-bus --save
 
 ```tsx
 import eventBus from "fizz-event-bus";
+// ES3 兼容
+// import eventBus from "fizz-event-bus/lib/es3/index";
 
 function hander(param) {
   console.log(param);
