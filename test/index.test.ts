@@ -90,6 +90,18 @@ describe("eventBus", () => {
       expect(fn3).toBeCalledWith("bar");
       expect(fn4).toBeCalledWith("bar");
     });
+
+    it("should call emit normal if no handler", () => {
+      const fn1 = jest.fn();
+      eventBus.on("foo", fn1);
+      expect(eventBus.emit("boo")).toBeFalsy();
+      expect(fn1).not.toHaveBeenCalled();
+      expect(fn1).toHaveBeenCalledTimes(0);
+      eventBus.on("boo", fn1)
+      eventBus.emit("boo");
+      expect(fn1).toHaveBeenCalled();
+      expect(fn1).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe("off", () => {
@@ -124,6 +136,11 @@ describe("eventBus", () => {
       expect(eventBus.eventList.foo).not.toContain(fn3);
       expect(eventBus.eventList).toHaveProperty("foo");
       expect(eventBus.eventList["foo"]).toContain(fn2);
+    });
+
+    it("should return false if without registered handlers", () => {
+      eventBus.off("foo");
+      expect(eventBus.off("foo")).toBeFalsy();
     });
   });
 });

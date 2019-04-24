@@ -1,6 +1,6 @@
 {
   "name": "fizz-event-bus",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a js event bus for simple sence.",
   "main": "./lib/es5/index.js",
   "module": "./lib/esm/index.js",
@@ -12,6 +12,7 @@
     "compile-es5": "rimraf './lib/es5' && tsc -t 'ES5' -m 'commonjs' --outDir './lib/es5' -d --sourceMap ",
     "compile-esm": "rimraf './lib/esm' && tsc -t 'ES6' -m 'esnext' --outDir './lib/esm' -d --sourceMap",
     "test": "jest --coverage=true",
+    "report-coverage-codecov": "codecov -t $CODECOV_TOKEN",
     "test:watch": "jest --watch --color"
   },
   "files": [
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
     "@types/jest": "^23.0.0",
+    "codecov": "^3.1.0",
     "jest": "^23.1.0",
     "prettier": "^1.13.4",
     "rimraf": "^2.6.2",
