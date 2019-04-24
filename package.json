@@ -11,7 +11,7 @@
     "compile-es3": "rimraf './lib/es3' && tsc -t 'ES3' -m 'commonjs' --outDir './lib/es3' -d --sourceMap ",
     "compile-es5": "rimraf './lib/es5' && tsc -t 'ES5' -m 'commonjs' --outDir './lib/es5' -d --sourceMap ",
     "compile-esm": "rimraf './lib/esm' && tsc -t 'ES6' -m 'esnext' --outDir './lib/esm' -d --sourceMap",
-    "test": "jest --coverage=false",
+    "test": "jest --coverage=true",
     "test:watch": "jest --watch --color"
   },
   "files": [
